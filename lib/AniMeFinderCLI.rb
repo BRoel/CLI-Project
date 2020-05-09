@@ -10,6 +10,7 @@ class AniMeFinderCLI
     def get_username
         username = gets.chomp
         self.username = username
+        puts "Hello #{self.username}"
     end
 
     def run
