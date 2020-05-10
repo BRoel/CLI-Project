@@ -2,10 +2,10 @@ class Genre
 
     @@all = []
 
-    attr_accessor :genre
+    attr_accessor :genres
     
-    def initialize(genre)
-        @genre = genre
+    def initialize(genres)
+        @genres = genres
         @@all <<  self
     end
     def self.all
@@ -13,8 +13,10 @@ class Genre
     end
     
     def self.scrape_genre
-        Genre.all.each do |series|
-            puts series.genre
+    
+        Genre.all.each_with_index do |genre, index|
+            puts "===Genre Type##{index+1}=="
+            puts genre.genres.split
             puts "==============="
         end
     end

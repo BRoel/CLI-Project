@@ -18,7 +18,8 @@ class Series
     end
     
     def self.scrape_series
-        Series.all.each do |series|
+        Series.all.each_with_index do |series, index|
+            puts "===Series ##{index+1}=="
             puts series.title
             puts series.episodes
             puts "==============="

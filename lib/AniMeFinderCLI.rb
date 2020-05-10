@@ -38,15 +38,14 @@ class AniMeFinderCLI
     #     if pop_or_gen == "Genre"
     #         genre_select = gets.chomp
     #         url + "/genres/" + genre_select
+    #         html_to_elements = open(genre_url)
+    #         parsed_html_elements = Nokogiri::HTML(html_to_elements)
+    #         series_elements = parsed_html_elements.css('.portrait-element')
+    
     #     elsif 
     #         puts "Would you like to go back to the previous prompt (Y/N)?"
     #         back_select = gets.chomp
-    #         if back_select == "Y"
-    #             popular_or_genre_selector
-    #         else 
-    #             nil
-    #     else
-    #         nil
+           
     #     end
 
     # end
@@ -55,8 +54,10 @@ class AniMeFinderCLI
         greeting
         get_username
         popular_or_genre_selector
+        # genre_selections
         Genre.scrape_genre
+        GenreSelectNav.scrape_series
         Series.scrape_series
-    # genre_selections
+        
     end
 end
