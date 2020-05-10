@@ -22,7 +22,7 @@ class AniMeFinderCLI
         pop_or_gen = gets.chomp
         if pop_or_gen == "Genre"
             GenreScraper.scrape_genre
-            GenreSelectNav.scrape_series
+            # GenreSelectNav.scrape_series
         elsif pop_or_gen == "Popular"
             puts "Here you go!"
             #delay a second
