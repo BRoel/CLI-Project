@@ -3,8 +3,12 @@ class GenreScraper
         url = "https://www.crunchyroll.com/videos/anime"
         html_to_elements = open(url)
         parsed_html_elements = Nokogiri::HTML(html_to_elements)
-        genre_elements = parsed_html_elements.css('.text-link')
+        genre_elements = parsed_html_elements.css('.genre-selectors')
         
+        # genre_elements.each do |element|
+        #     genre_title = element.css('.text-link').children.text
+        #     Genre.new
+        # end
         puts genre_elements
     end
 end
@@ -13,9 +17,9 @@ end
 class GenreSelectNav
     def self.scrape_series
         puts "Please select a genre."
-        genre_selection = gets.chomp
-        url = "https://www.crunchyroll.com/videos/anime/genres" + "#{genre_selection}"
-        html_to_elements = open(url)
+        genre_selection = gets.chomp.to_s
+        genre_url = "https://www.crunchyroll.com/videos/anime/genres" + "#{genre_selection.concat}"
+        html_to_elements = open(genre_url)
         parsed_html_elements = Nokogiri::HTML(html_to_elements)
         series_elements = parsed_html_elements.css('.portrait-element')
         

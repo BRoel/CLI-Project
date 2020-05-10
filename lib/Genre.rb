@@ -2,20 +2,19 @@ class Genre
 
     @@all = []
 
-    attr_accessor :title, :episodes 
-
-    def initialize(title, episodes)
-        @title = title
-        @episodes = episodes
+    attr_accessor :genre
+    
+    def initialize(genre)
+        @genre = genre
         @@all <<  self
     end
     def self.all
         @@all
     end
     
-    def self.scrape_series
-        Genre.all.each do |genre|
-            puts series.title
+    def self.scrape_genre
+        Genre.all.each do |series|
+            puts series.genre
             puts "==============="
         end
     end

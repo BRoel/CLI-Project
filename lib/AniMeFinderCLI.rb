@@ -55,6 +55,7 @@ class AniMeFinderCLI
         greeting
         get_username
         popular_or_genre_selector
+        Genre.scrape_genre
         Series.scrape_series
     # genre_selections
     end
