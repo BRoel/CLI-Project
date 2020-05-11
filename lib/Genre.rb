@@ -1,5 +1,5 @@
 class Genre
-
+    
     @@all = []
 
     attr_accessor :genres
@@ -19,5 +19,6 @@ class Genre
             puts genre.genres.split
             puts "==============="
         end
+       
     end
 end
