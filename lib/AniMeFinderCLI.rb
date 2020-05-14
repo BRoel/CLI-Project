@@ -4,30 +4,32 @@ class AniMeFinderCLI
 
     def greeting
         puts "Hello and welcome to the AniMe Finder!  Whats your name?"
-       
+        puts " "
     end
 
     def get_username
-        username = gets.chomp
-        self.username = username
-         if username == "Brennan"
-            puts "That is an absolutely stunning name! Now lets find you the best anime for you to start watching next Brennan."
+        input = gets.chomp
+         if input == "Brennan"
+            puts " "
+            puts "That is an absolutely stunning name! Now lets find you the best anime for you to start watching next."
         else 
-            puts "Cool story #{self.username} I don't really care, lets find you some anime to watch so you can stop bothering me."
+            puts "Cool story #{input} I don't really care, lets find you some anime to watch so you can stop bothering me."
         end
     end
 
     def popular_or_genre_selector
         puts "Would you like to search by Genre or see what is currently Popular?"
-        pop_or_gen = gets.chomp
-        if pop_or_gen == "Genre"
+        puts " "
+        input = gets.chomp.downcase
+        if input == "genre"
             GenreScraper.scrape_genre
             GenreSelectNav.scrape_series
-        elsif pop_or_gen == "Popular"
+            puts "Please select a genre."
+        elsif input == "popular"
             puts "Here you go!"
             SeriesScraper.scrape_series
         else
-            puts "That is not a valid selection try again"
+            puts "That is not a valid selection, try again!"
             popular_or_genre_selector
         end
     end

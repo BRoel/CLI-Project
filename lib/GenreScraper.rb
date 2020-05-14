@@ -15,7 +15,6 @@ end
 
 class GenreSelectNav
     def self.scrape_series
-        puts "Please select a genre."
         genre_selection = gets.chomp
         genre_url = "https://www.crunchyroll.com/videos/anime/genres/" + genre_selection
         html_to_elements = open(genre_url)

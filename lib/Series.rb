@@ -13,6 +13,7 @@ class Series
         @episodes = episodes
         @@all <<  self
     end
+    
     def self.all
         @@all
     end
