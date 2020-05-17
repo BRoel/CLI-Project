@@ -9,7 +9,7 @@ class AniMeFinderCLI
 
     def get_username
         input = gets.chomp
-         if input == "Brennan"
+        if input == "Brennan" || "brennan"
             puts " "
             puts "That is an absolutely stunning name! Now lets find you the best anime for you to start watching next."
         else 
@@ -26,9 +26,22 @@ class AniMeFinderCLI
             GenreSelectNav.scrape_series
             puts "Please select a genre."
         elsif input == "popular"
-            puts "Here you go!"
             SeriesScraper.scrape_series
+            puts "Here you go!"
         else
+            puts "That is not a valid selection, try again!"
+            popular_or_genre_selector
+        end
+    end
+
+    def next_search
+        puts "Would you like to search again? (Y/N)"
+        input = gets.chomp.downcase
+        if input == "y"
+            popular_or_genre_selector
+        elsif input == "n"
+            puts "Thank you for using AniMe Finder!  I hope you found something you will enjoy watching."
+        else input != "y" || "n"
             puts "That is not a valid selection, try again!"
             popular_or_genre_selector
         end
@@ -41,5 +54,6 @@ class AniMeFinderCLI
         Genre.scrape_genre
         GenreSelectNav.scrape_series
         Series.scrape_series
+        next_search
     end
 end
