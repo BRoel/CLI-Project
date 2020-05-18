@@ -38,22 +38,26 @@ class AniMeFinderCLI
         puts "Would you like to search again? (Y/N)"
         input = gets.chomp.downcase
         if input == "y"
-            popular_or_genre_selector
+            return true
         elsif input == "n"
             puts "Thank you for using AniMe Finder!  I hope you found something you will enjoy watching."
+            return false
         else input != "y" || "n"
             puts "That is not a valid selection, try again!"
-            popular_or_genre_selector
+            next_search
         end
     end
 
     def run
         greeting
         get_username
+        running = true
+        while running
         popular_or_genre_selector
         Genre.scrape_genre
         GenreSelectNav.scrape_series
         Series.scrape_series
-        next_search
+        running = next_search
+        end
     end
 end
