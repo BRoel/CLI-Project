@@ -9,7 +9,7 @@ class AniMeFinderCLI
 
     def get_username
         input = gets.chomp
-        if input == "Brennan" || "brennan"
+        if input == "Brennan" || input == "brennan"
             puts " "
             puts "That is an absolutely stunning name! Now lets find you the best anime for you to start watching next."
         else 
